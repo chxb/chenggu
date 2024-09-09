@@ -1,5 +1,5 @@
 # 简介
-根据农历年/月/日/时换算称骨重量及获取称骨歌诀信息。
+根据农历年/月/日/时换算称骨重量及获取袁天罡称骨歌诀信息。
 ```javascript
 /**
  * 根据农历年/月/日/时换算称骨重量
@@ -10,6 +10,26 @@
  * @return 骨重
  */
 function chenggu(year,  month,  day,  hour) {
+  ...
+}
+
+/**
+ * 查询称骨歌决.
+ * @param {string} zong 骨重
+ * @param {boolean} isman 性别
+ * @returns 歌决
+ */
+function chengguInfo(zong, isman)
+  ...
+}
+
+/**
+ * 查询称骨歌决详细解释.
+ * @param {string} zong 骨重
+ * @param {boolean} isman 性别
+ * @returns 详细解释
+ */
+function chengguDetails(zong, isman) {
   ...
 }
 ```
