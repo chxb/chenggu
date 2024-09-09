@@ -7,7 +7,7 @@
  * @param month 农历月，从1开始
  * @param day   日,从1开始
  * @param hour  时辰,从子时(数字0)开始，亥时(数字11)止。
- * @return
+ * @return 骨重
  */
 function chenggu(year,  month,  day,  hour) {
   ...
