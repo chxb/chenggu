@@ -15,7 +15,7 @@ function chenggu(year,  month,  day,  hour) {
 ```
 
 # 应用示例
-本神煞算法已应用于吉时雨排盘软件：https://ji.js.cn
+本称骨算法已应用于吉时雨排盘软件：https://ji.js.cn
 
 # 关于作者
 xianbo.chen@gmail.com
