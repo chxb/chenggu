@@ -221,12 +221,12 @@ var CHENGGU_DETAIL_WOMAN = {
 
 //出生年重量(甲子年开始，60年一周期)
 var CHENGGU_YEAR = [
-    12, 9,  6,  7,  12, 5,  9,  8,  7,  8,  
-    15, 9,  16, 8,  8,  19, 12, 6,  8,  7,  
-    5,  15, 6,  16, 15, 7,  9,  12, 10, 7,  
-    15, 6,  5,  14, 14, 9,  7,  7,  9,  12, 
-    8,  7,  13, 5,  14, 5,  9,  17, 5,  7,  
-    12, 8,  8,  6,  19, 6,  8,  16, 10, 6
+    12, 9, 6, 7, 12, 5, 9, 8, 7, 8,
+    15, 9, 16, 8, 8, 19, 12, 6, 8, 7,
+    5, 15, 6, 16, 15, 7, 9, 12, 10, 7,
+    15, 6, 5, 14, 14, 9, 7, 7, 9, 12,
+    8, 7, 13, 5, 14, 5, 9, 17, 5, 7,
+    12, 8, 8, 6, 19, 6, 8, 16, 10, 6
 ];
 //出生月重量(农历一月 -> 十二月)
 var CHENGGU_MONTH = [6, 7, 18, 9, 5, 16, 9, 15, 18, 8, 9, 5];
@@ -236,9 +236,9 @@ var CHENGGU_DAY = [
     8, 9, 18, 5, 15, 10, 9, 8, 9, 15, 18, 7, 8, 16, 6];
 //出生时辰重量(子 -> 亥时)
 var CHENGGU_HOUR = [16, 6, 7, 10, 9, 16, 10, 8, 8, 9, 6, 6];
-var CHINESE_DIGIT = ["零","一", "二", "三", "四", "五", "六", "七", "八", "九"];
-var YUEJIAN = [ "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥", "子", "丑" ];
-var SHICHENG = [ "子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥" ];
+var CHINESE_DIGIT = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
+var YUEJIAN = ["寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥", "子", "丑"];
+var SHICHENG = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
 
 
 /**
@@ -247,15 +247,15 @@ var SHICHENG = [ "子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", 
  * @param month 农历月，从1开始
  * @param day   日,从1开始
  * @param hour  时辰,从子时(数字0)开始，亥时(数字11)止。
- * @return
+ * @return 骨重
  */
-function chenggu(year,  month,  day,  hour) {
+function chenggu(year, month, day, hour) {
     var zong, zong1, zong2;
-    zong = CHENGGU_YEAR[year-1] + CHENGGU_MONTH[month-1] + CHENGGU_DAY[day-1] + CHENGGU_HOUR[hour];
+    zong = CHENGGU_YEAR[year - 1] + CHENGGU_MONTH[month - 1] + CHENGGU_DAY[day - 1] + CHENGGU_HOUR[hour];
     zong1 = zong % 10;
     zong2 = Math.floor(zong / 10);
 
-    if( zong1>0 )
+    if (zong1 > 0)
         return "" + CHINESE_DIGIT[zong2] + "两" + CHINESE_DIGIT[zong1] + "钱";
     else
         return "" + CHINESE_DIGIT[zong2] + "两"
@@ -265,11 +265,12 @@ function chenggu(year,  month,  day,  hour) {
  * 查询称骨歌决.
  * @param {string} zong 骨重
  * @param {boolean} isman 性别
+ * @returns 歌决
  */
-function chengguInfo(zong,isman){
-    if( isman ){
+function chengguInfo(zong, isman) {
+    if (isman) {
         return CHENGGU_MAN[zong];
-    }else{
+    } else {
         return CHENGGU_WOMAN[zong];
     }
 }
@@ -278,12 +279,12 @@ function chengguInfo(zong,isman){
  * 查询称骨歌决详细解释.
  * @param {string} zong 骨重
  * @param {boolean} isman 性别
- * @returns 
+ * @returns 详细解释
  */
-function chengguDetails(zong,isman){
-    if( isman ){
+function chengguDetails(zong, isman) {
+    if (isman) {
         return CHENGGU_DETAIL_MAN[zong];
-    }else{
+    } else {
         return CHENGGU_DETAIL_WOMAN[zong];
     }
 }
